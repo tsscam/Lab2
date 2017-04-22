@@ -10,8 +10,7 @@ namespace Lab2
     {
         static void Main(string[] args)
         {
-            bool run = true;
-            do
+           do
             {
                 Console.WriteLine("Type a number 1 to 100 (press Enter) ");
                 int num1 = Int32.Parse(Console.ReadLine());
@@ -19,30 +18,46 @@ namespace Lab2
                 {
                     Console.WriteLine("The number you entered is Even");
                     Console.WriteLine("Do you want to continue?");
-                    string input = Console.ReadLine();
+                    
                 }
                 else
                 {
                     Console.WriteLine("The number you entered is Odd");
-                }
-                Console.ReadLine();
+                    
 
-                if ((num1 % 2 == 0) && (num1 >= 2) && (num1 <= 25))
-                {
-                    Console.WriteLine("Even and less than 25");
-                }
-                else if ((num1 % 2 != 0) && (num1 > 60))
+                    if ((num1 % 2 == 0) && (num1 >= 2) && (num1 <= 25))
+                    {
+                        Console.WriteLine("Even and less than 25");
+                    }
+                    else if ((num1 % 2 != 0) && (num1 > 60))
 
-                Console.WriteLine("Number {0} is Odd", num1);
-                Console.WriteLine("Do you want to continue? Type 'Y' or 'N': ");
-                string YOrN = Console.ReadLine();
-                if (YOrN.ToUpper() == "n")
-                return;
+                        Console.WriteLine("Number {0} is Odd", num1);
+                }
+            } while (Continue());
+    }
+
+                
+       public static bool Continue()
+        {
+            bool run = true;
+            Console.WriteLine("***************************");
+            Console.WriteLine("Would you like to continue? (y/n) : ");
+            
+            string input = Console.ReadLine();
+            if (input.ToLower() == "n")
+            {
                 run = false;
+                Console.WriteLine("\n See you next time :) ");
+            }
+            else
+            {
+                Console.WriteLine("Please select y/n :  ");
+                Continue();
+                
+            }
 
-            } while (run);
+                return run;
+
         }
     }
 }
-
-                
